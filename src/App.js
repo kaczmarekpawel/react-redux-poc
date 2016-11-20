@@ -1,7 +1,10 @@
+
 import React, {Component} from 'react';
 import {Grid, Panel, Row, Col} from 'react-bootstrap';
-import DictionaryList from './DictionaryList';
+import DictionaryList from './DictionaryList/DictionaryList';
 import './App.css';
+
+
 
 
 class App extends Component {

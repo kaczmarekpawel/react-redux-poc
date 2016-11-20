@@ -1,11 +1,3 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-
-import './index.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/css/bootstrap-theme.min.css';
-
 // Czyli np bierzemy sobie 2 słowniki  gdzie występują:
 // 	1) Radio
 //  2) Checkboxy
@@ -16,7 +8,38 @@ import 'bootstrap/dist/css/bootstrap-theme.min.css';
 //  + Callback po update
 
 
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import store from './store'
+
+import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap-theme.min.css';
+
+import { Provider } from 'react-redux';
+import { addDictionary, removeDictionary } from './DictionaryList/actionCreators';
+
+
+console.log('init state', store.getState());
+
+let unsubscribe = store.subscribe(() =>
+	console.log(store.getState())
+);
+
+store.dispatch(addDictionary('new dict 1'));
+store.dispatch(addDictionary('new dict 2'));
+store.dispatch(addDictionary('new dict 3'));
+
+store.dispatch(removeDictionary('new dict 2'));
+
+unsubscribe();
+
 ReactDOM.render(
-	<App />,
+	<Provider store={store}>
+		<App/>
+	</Provider>,
 	document.getElementById('root')
 );
+
