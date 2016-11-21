@@ -5,3 +5,4 @@
 export const ADD_STUDENT = 'students/ADD_STUDENT';
 export const REMOVE_STUDENT = 'students/REMOVE_STUDENT';
 export const UPDATE_STUDENT = 'students/UPDATE_STUDENT';
+export const SEARCH_STUDENT = 'students/SEARCH_STUDENT';

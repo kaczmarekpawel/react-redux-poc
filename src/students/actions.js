@@ -2,7 +2,7 @@
  * Created by Paweł Kaczmarek on 2016-11-21.
  */
 
-import {ADD_STUDENT, REMOVE_STUDENT, UPDATE_STUDENT} from './actionTypes';
+import {SEARCH_STUDENT, ADD_STUDENT, REMOVE_STUDENT, UPDATE_STUDENT} from './actionTypes';
 
 export const addStudent = (name, address) => {
 	return {
@@ -11,15 +11,14 @@ export const addStudent = (name, address) => {
 		name,
 		address
 	}
-}
-
+};
 
 export const removeStudent = (id) => {
 	return {
 		type: REMOVE_STUDENT,
 		id
 	}
-}
+};
 
 export const updateStudent = (id, name, address) => {
 	return {
@@ -28,4 +27,11 @@ export const updateStudent = (id, name, address) => {
 		name,
 		address
 	}
-}
+};
+
+export const searchStudent = (searchPhrase) => {
+	return {
+		type: SEARCH_STUDENT,
+		searchPhrase
+	}
+};

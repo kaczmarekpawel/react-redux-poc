@@ -4,15 +4,19 @@ export default {
 		{name: 'Teachers'},
 		{name: 'Courses'}
 	],
-	students: [
-		{id: 1, name: 'john', address: 'no street', courses: [1]},
-		{id: 2, name: 'mick', address: 'michigan 11', courses: [2]},
-		{id: 3, name: 'andy', address: 'chicago', courses: [2]},
-		{id: 4, name: 'bony', address: 'NY', courses: [2]},
-		{id: 5, name: 'mark', address: 'Gdansk', courses: [1]},
-		{id: 6, name: 'clair', address: 'Wawa', courses: [1]},
-		{id: 7, name: 'jenny', address: 'Belgrad', courses: [1]},
-	]
+	students: {
+		searchPhrase: '',
+		items: [
+			{id: 1, name: 'john', address: 'no street', courses: [1]},
+			{id: 2, name: 'mick', address: 'michigan 11', courses: [2]},
+			{id: 3, name: 'andy', address: 'chicago', courses: [2]},
+			{id: 4, name: 'bony', address: 'NY', courses: [2]},
+			{id: 5, name: 'mark', address: 'Gdansk', courses: [1]},
+			{id: 6, name: 'clair', address: 'Wawa', courses: [1]},
+			{id: 7, name: 'jenny', address: 'Belgrad', courses: [1]},
+		]
+	}
+
 	// ,
 	// teachers: [
 	// 	{id: 1, name: 'pawel'},

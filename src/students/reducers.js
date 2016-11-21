@@ -2,10 +2,20 @@
  * Created by Paweł Kaczmarek on 2016-11-21.
  */
 
-import {UPDATE_STUDENT,REMOVE_STUDENT,ADD_STUDENT} from './actionTypes';
+import {combineReducers} from 'redux';
+import {SEARCH_STUDENT, UPDATE_STUDENT, REMOVE_STUDENT, ADD_STUDENT} from './actionTypes';
 
-function students(state = [], action) {
-	switch(action.type) {
+const searchPhrase = (state = '', action) => {
+	switch (action.type) {
+		case SEARCH_STUDENT:
+			return action.searchPhrase;
+		default:
+			return state;
+	}
+};
+
+const students = (state = [], action) => {
+	switch (action.type) {
 		case ADD_STUDENT:
 			return [
 				...state,
@@ -29,6 +39,9 @@ function students(state = [], action) {
 		default:
 			return state;
 	}
-}
+};
 
-export default students;
+export default combineReducers({
+	searchPhrase,
+	items: students
+});

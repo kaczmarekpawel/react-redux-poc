@@ -4,28 +4,35 @@
 
 import React from 'react';
 import {connect} from 'react-redux';
-import {removeStudent} from './actions'
+import {removeStudent, searchStudent} from './actions'
+import ListItem from '../dictionaryListItem/DictionaryListItem';
+import SearchBar from '../searchBar/SearchBar';
 
 const mapStateToProps = (state) => {
 	return {
-		students: state.students
+		searchPhrase: state.students.searchPhrase,
+		filteredStudents: state.students.items.filter(s =>
+			s.name.toLowerCase().indexOf(state.students.searchPhrase.toLowerCase()) > -1
+		)
 	}
 };
+
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		removeStudent: (id) => {dispatch(removeStudent(id))}
+		removeStudent: (id) => {dispatch(removeStudent(id))},
+		searchStudent: (phrase) => {dispatch(searchStudent(phrase))}
 	}
 };
 
-const Students = ({students, removeStudent}) => (
+const Students = ({filteredStudents, searchPhrase, removeStudent, searchStudent}) => (
 	<div>
+		<SearchBar value={searchPhrase} onChange={searchStudent}/>
 		<ul>
-			{students.map(s =>
-				<li key={s.id}>
-					<span>{s.name}</span>
-					<div onClick={() => removeStudent(s.id)}>X</div>
-				</li>
+			{filteredStudents.map(s =>
+				<div key={s.id}>
+					<ListItem item={s} onRemove={removeStudent}/>
+				</div>
 			)}
 		</ul>
 	</div>
