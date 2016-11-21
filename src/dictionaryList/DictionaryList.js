@@ -4,7 +4,7 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { addDictionary } from './actionCreators';
+import { addDictionary } from './actions';
 
 const mapStateToProps = (state) => {
 	return {
@@ -23,21 +23,31 @@ const mapDispatchToProps = (dispatch) => {
 	}
 };
 
+class DictionaryList extends React.Component {
+	render() {
+		var {
+			dictionaries,
+			onDictionaryClick,
+			onDictionaryAddClick
+		} = this.props;
 
-const DictionaryList = ({dictionaries, onDictionaryAddClick, onDictionaryClick}) => (
-	<div>
-		<ul>
-			{dictionaries.map(d =>
-				<li key={d.name}
-					onClick={() => onDictionaryClick(d.name)}>
-					{d.name}
-				</li>)}
-		</ul>
-		<Button onClick={() => {onDictionaryAddClick()}}>
-			Add
-		</Button>
-	</div>
-);
+		return(
+			<div>
+				<ul>
+					{dictionaries.map(d =>
+						<li key={d.name}
+							onClick={() => onDictionaryClick(d.name)}>
+							{d.name}
+						</li>)}
+				</ul>
+				<Button onClick={() => {onDictionaryAddClick()}}>
+					Add
+				</Button>
+			</div>)
+	}
+
+}
+
 
 export default connect(
 	mapStateToProps,

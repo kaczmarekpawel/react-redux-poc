@@ -3,16 +3,16 @@
  */
 import {ADD_DICTIONARY, REMOVE_DICTIONARY} from './actionTypes';
 
-export function addDictionary(name) {
+export const addDictionary = (name) => {
 	return {
 		type: ADD_DICTIONARY,
 		name
 	}
 }
 
-export function removeDictionary(name) {
+export const removeDictionary = (name) => {
 	return {
-		type: REMOVE_DICTIONARY,
+		type:REMOVE_DICTIONARY,
 		name
 	}
 }

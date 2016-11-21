@@ -19,22 +19,22 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/css/bootstrap-theme.min.css';
 
 import { Provider } from 'react-redux';
-import { addDictionary, removeDictionary } from './DictionaryList/actionCreators';
+import { addDictionary, removeDictionary } from './dictionaryList/actions';
 
 
 console.log('init state', store.getState());
+//
+// let unsubscribe = store.subscribe(() =>
+// 	console.log(store.getState())
+// );
+//
+// store.dispatch(addDictionary('new dict 1'));
+// store.dispatch(addDictionary('new dict 2'));
+// store.dispatch(addDictionary('new dict 3'));
+//
+// store.dispatch(removeDictionary('new dict 2'));
 
-let unsubscribe = store.subscribe(() =>
-	console.log(store.getState())
-);
-
-store.dispatch(addDictionary('new dict 1'));
-store.dispatch(addDictionary('new dict 2'));
-store.dispatch(addDictionary('new dict 3'));
-
-store.dispatch(removeDictionary('new dict 2'));
-
-unsubscribe();
+// unsubscribe();
 
 ReactDOM.render(
 	<Provider store={store}>

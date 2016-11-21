@@ -5,10 +5,12 @@
 import { createStore } from 'redux';
 import { combineReducers } from 'redux';
 import defaultState from './data/initState';
-import dictionaryReducer from './DictionaryList/reducers';
+import dictionaryReducer from './dictionaryList/reducers';
+import studentsReducer from './students/reducers';
 
 let reducers = combineReducers({
-	dictionaries: dictionaryReducer
+	dictionaries: dictionaryReducer,
+	students: studentsReducer
 });
 
 export default createStore(reducers, defaultState);

@@ -1,9 +1,9 @@
 
 import React, {Component} from 'react';
 import {Grid, Panel, Row, Col} from 'react-bootstrap';
-import DictionaryList from './DictionaryList/DictionaryList';
+import DictionaryList from './dictionaryList/DictionaryList';
+import Students from './students/Students';
 import './App.css';
-
 
 
 
@@ -22,7 +22,7 @@ class App extends Component {
 							</Panel>
 						</Col>
 						<Col sm={9}>
-							<Panel>Dictionary Content</Panel>
+							<Panel><Students/></Panel>
 						</Col>
 					</Row>
 				</Grid>
